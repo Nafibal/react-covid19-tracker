@@ -7,9 +7,12 @@ import { fetchData } from "./api";
 const App = () => {
   const [data, setData] = useState({});
 
-  useEffect(async () => {
-    const data = await fetchData();
-    setData(data);
+  useEffect(() => {
+    const fetchApi = async () => {
+      const data = await fetchData();
+      setData(data);
+    };
+    fetchApi();
   }, []);
 
   return (
